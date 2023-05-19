@@ -1,0 +1,14 @@
+@import url('../vendor/normalize.css');
+
+.page {
+  background-color: #000;
+}
+
+.header {
+  width: 880px;
+  height: 74px;
+}
+
+.header__logo {
+  width: 142px;
+}

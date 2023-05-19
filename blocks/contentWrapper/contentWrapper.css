@@ -1,0 +1,10 @@
+.contentWrapper {
+  display: flex;
+  align-items: center;
+}
+
+@media screen and (max-width: 480px) {
+  .contentWrapper {
+    display: block;
+  }
+}
