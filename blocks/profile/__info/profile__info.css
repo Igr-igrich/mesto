@@ -1,7 +1,10 @@
 .profile__info {
   margin-left: 30px;
-  display: flex;
-  align-items: center;
+  /* display: flex;
+  align-items: center; */
+  display: grid;
+  grid-template-columns: repeat(2, auto);
+  grid-template-rows: repeat(2, auto);
   max-width: 336px;
   flex-wrap: wrap;
   column-gap: 18px;

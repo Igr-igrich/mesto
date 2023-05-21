@@ -4,82 +4,139 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="./pages/index.css" />
-    <script src="./index.js" defer></script>
-    <title>Mesto</title>
+    <script src="./scripts/index.js" defer></script>
+    <title lang="en">Mesto</title>
   </head>
   <body>
     <div class="page">
       <header class="header container">
         <img src="./images/logo.svg" alt="Логотип" class="header__logo" />
       </header>
-      <section class="profile container">
-        <div class="contentWrapper">
-          <img src="./images/profile_image.jpg" alt="фотография профиля" class="profile__image" />
-          <div class="profile__info">
-            <h1 class="profile__title">Жак-Ив Кусто</h1>
-            <button class="profile__button"></button>
-            <p class="profile__subtitle">Исследователь океана</p>
+      <main>
+        <section class="profile container">
+          <div class="profile__contentWrapper">
+            <img src="./images/profile_image.jpg" alt="фотография профиля" class="profile__image" />
+            <div class="profile__info">
+              <h1 class="profile__title">Жак-Ив Кусто</h1>
+              <button
+                type="button"
+                class="profile__edit-button"
+                aria-label="Кнопка редактирования профиля"
+              ></button>
+              <p class="profile__subtitle">Исследователь океана</p>
+            </div>
           </div>
-        </div>
-        <div class="profile__add-button"></div>
-      </section>
-      <section class="elements container">
-        <ul class="elements__items">
-          <li class="elements__item">
-            <img src="./images/karachaevsk.jpg" alt="" class="elements__img" />
-            <div class="elements__wrapper">
-              <h2 class="elements__title">Карачаевск</h2>
-              <div class="elements__like"></div>
-            </div>
-          </li>
-          <li class="elements__item">
-            <img src="./images/elbrus.png" alt="" class="elements__img" />
-            <div class="elements__wrapper">
-              <h2 class="elements__title">Гора Эльбрус</h2>
-              <img src="./images/Vector.svg" alt="" class="elements__like" />
-            </div>
-          </li>
-          <li class="elements__item">
-            <img src="./images/dombai.png" alt="" class="elements__img" />
-            <div class="elements__wrapper">
-              <h2 class="elements__title">Домбай</h2>
-              <img src="./images/Vector.svg" alt="" class="elements__like" />
-            </div>
-          </li>
-          <li class="elements__item">
-            <img src="./images/dagestan.avif.avif" alt="" class="elements__img" />
-            <div class="elements__wrapper">
-              <h2 class="elements__title">Дагестан</h2>
-              <img src="./images/Vector.svg" alt="" class="elements__like" />
-            </div>
-          </li>
-          <li class="elements__item">
-            <img src="./images/arhys.avif.avif" alt="" class="elements__img" />
-            <div class="elements__wrapper">
-              <h2 class="elements__title">Архыз</h2>
-              <img src="./images/Vector.svg" alt="" class="elements__like" />
-            </div>
-          </li>
-          <li class="elements__item">
-            <img src="./images/poperechnaya-gora.avif.avif" alt="" class="elements__img" />
-            <div class="elements__wrapper">
-              <h2 class="elements__title">Поперечная гора</h2>
-              <img src="./images/Vector.svg" alt="" class="elements__like" />
-            </div>
-          </li>
-        </ul>
-      </section>
-      <footer class="footer container">© 2023 Mesto Russia</footer>
+          <button
+            type="button"
+            class="profile__add-button"
+            aria-label="Кнопка добавления карточек"
+          ></button>
+        </section>
+        <section class="elements container">
+          <ul class="elements__items">
+            <li class="elements__item">
+              <img
+                src="./images/karachaevsk.jpg"
+                alt="Монастырь на фоне гор"
+                class="elements__img"
+              />
+              <div class="elements__wrapper">
+                <h2 class="elements__title">Карачаевск rfhfxxxxx</h2>
+                <button
+                  type="button"
+                  class="elements__like-button"
+                  aria-label="Кнопка лайка"
+                ></button>
+              </div>
+            </li>
+            <li class="elements__item">
+              <img src="./images/elbrus.png" alt="Поля и гора Эльбрус" class="elements__img" />
+              <div class="elements__wrapper">
+                <h2 class="elements__title">Гора Эльбрус</h2>
+                <button
+                  type="button"
+                  class="elements__like-button"
+                  aria-label="Кнопка лайка"
+                ></button>
+              </div>
+            </li>
+            <li class="elements__item">
+              <img src="./images/dombai.png" alt="Горы на фоне леса" class="elements__img" />
+              <div class="elements__wrapper">
+                <h2 class="elements__title">Домбай</h2>
+                <button
+                  type="button"
+                  class="elements__like-button"
+                  aria-label="Кнопка лайка"
+                ></button>
+              </div>
+            </li>
+            <li class="elements__item">
+              <img src="./images/dagestan.avif.avif" alt="Деревня в горах" class="elements__img" />
+              <div class="elements__wrapper">
+                <h2 class="elements__title">Дагестан</h2>
+                <button
+                  type="button"
+                  class="elements__like-button"
+                  aria-label="Кнопка лайка"
+                ></button>
+              </div>
+            </li>
+            <li class="elements__item">
+              <img src="./images/arhys.avif.avif" alt="Монастырь в горах" class="elements__img" />
+              <div class="elements__wrapper">
+                <h2 class="elements__title">Архыз</h2>
+                <button
+                  type="button"
+                  class="elements__like-button"
+                  aria-label="Кнопка лайка"
+                ></button>
+              </div>
+            </li>
+            <li class="elements__item">
+              <img
+                src="./images/poperechnaya-gora.avif.avif"
+                alt="Поперечная гора в тумане"
+                class="elements__img"
+              />
+              <div class="elements__wrapper">
+                <h2 class="elements__title">Поперечная гора</h2>
+                <button
+                  type="button"
+                  class="elements__like-button"
+                  aria-label="Кнопка лайка"
+                ></button>
+              </div>
+            </li>
+          </ul>
+        </section>
+      </main>
+      <footer class="footer container"><p class="footer__text">&copy 2023 Mesto Russia</p></footer>
       <div id="edit-popup" class="popup">
         <div class="popup__content">
-          <form id="edit-form" class="popup__form">
-            <h2 class="popup__title">Редактировать профиль</h2>
-            <input id="input-title" type="text" class="popup__input" />
-            <input id="input-subtitle" type="text" class="popup__input" />
+          <h2 class="popup__title">Редактировать профиль</h2>
+          <form id="edit-form" class="popup__container" name="popupForm">
+            <input
+              id="input-title"
+              type="text"
+              class="popup__input popup__input_type_name"
+              placeholder="Имя"
+            />
+            <input
+              id="input-subtitle"
+              type="text"
+              class="popup__input popup__input_type_job"
+              placeholder="Работа"
+            />
             <button type="submit" class="popup__button">Сохранить</button>
           </form>
 
-          <button id="close-popup-button" class="popup__close-button"></button>
+          <button
+            type="button"
+            id="close-popup-button"
+            class="popup__close-button"
+            aria-label="Кнопка закрытия редактирования"
+          ></button>
         </div>
       </div>
     </div>
