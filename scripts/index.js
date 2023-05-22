@@ -5,7 +5,7 @@ const profileTitle = document.querySelector('.profile__title');
 const profileSubtitle = document.querySelector('.profile__subtitle');
 const inputTitle = document.querySelector('.popup__input_type_name');
 const inputSubtitle = document.querySelector('.popup__input_type_job');
-const editForm = document.querySelector('.popup__container');
+const editForm = document.querySelector('.popup__form');
 
 function openPopup() {
   editPopup.classList.add('popup_opened');
@@ -13,7 +13,7 @@ function openPopup() {
   inputSubtitle.value = profileSubtitle.textContent;
 }
 
-function closePopup(popup) {
+function closePopup() {
   editPopup.classList.remove('popup_opened');
 }
 
@@ -25,5 +25,5 @@ editForm.addEventListener('submit', function (event) {
   profileTitle.textContent = inputTitle.value;
   profileSubtitle.textContent = inputSubtitle.value;
 
-  closePopup(editPopup);
+  closePopup();
 });
