@@ -1,6 +1,6 @@
 // Блок с попапом для редактирования профиля
 
-const editPopup = document.querySelector('.popup__profile-edit');
+const editPopup = document.querySelector('.popup_profile-edit');
 const OpenPopupButton = document.querySelector('.profile__edit-button');
 const ClosePopupButton = document.querySelector('.popup__close-button_profile');
 const profileTitle = document.querySelector('.profile__title');
@@ -32,7 +32,7 @@ editForm.addEventListener('submit', function (event) {
 
 // Попап с картинкой
 
-const popupImage = document.querySelector('.popup__image');
+const popupImage = document.querySelector('.popup_image');
 const popupImageOpened = popupImage.querySelector('.popup__image-opened');
 const popupImageText = popupImage.querySelector('.popup__image-text');
 const popupImageDeleteButton = popupImage.querySelector('.popup__image_close-button');
@@ -116,9 +116,9 @@ function createCard(card) {
 
 // Блок с попапом для добавления карточек
 
-const editPopupAdd = document.querySelector('.popup__card');
+const editPopupAdd = document.querySelector('.popup_card');
 const openPopupAddButton = document.querySelector('.profile__add-button');
-const closePopupAddButton = document.querySelector('.popup__card_close-button');
+const closePopupAddButton = document.querySelector('.popup__close-button_card');
 const editFormAdd = document.querySelector('.popup__form_card');
 // const inputTitle = editPopup.querySelector('.popup__input_profile_name');
 // const inputSubtitle = editPopup.querySelector('.popup__input_profile_job');
