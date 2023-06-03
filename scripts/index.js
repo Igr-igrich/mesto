@@ -35,7 +35,7 @@ editForm.addEventListener('submit', function (event) {
 const popupImage = document.querySelector('.popup_image');
 const popupImageOpened = popupImage.querySelector('.popup__image-opened');
 const popupImageText = popupImage.querySelector('.popup__image-text');
-const popupImageDeleteButton = popupImage.querySelector('.popup__image_close-button');
+const popupImageDeleteButton = popupImage.querySelector('.popup__close-button_image');
 
 function openPopupImage() {
   popupImage.classList.add('popup_opened');
