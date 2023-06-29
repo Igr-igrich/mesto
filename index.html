@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="./pages/index.css" />
     <script src="./scripts/cards.js" defer></script>
+    <script src="./scripts/validate.js" defer></script>
     <script src="./scripts/index.js" defer></script>
     <title lang="en">Mesto</title>
   </head>
@@ -41,9 +42,31 @@
       <div class="popup popup_profile-edit">
         <div class="popup__container">
           <h2 class="popup__title">Редактировать профиль</h2>
-          <form class="popup__form popup__form_profile" name="popupForm">
-            <input type="text" class="popup__input popup__input_profile_name" placeholder="Имя" />
-            <input type="text" class="popup__input popup__input_profile_job" placeholder="Работа" />
+          <form class="popup__form popup__form_profile" name="popupForm" novalidate>
+            <input
+              type="text"
+              id="name-input"
+              class="popup__input popup__input_profile_name"
+              placeholder="Имя"
+              minlength="2"
+              maxlength="40"
+              required
+            />
+            <p class="popup__span-paragraph">
+              <span class="popup__input-error name-input-error"></span>
+            </p>
+            <input
+              type="text"
+              id="job-input"
+              class="popup__input popup__input_profile_job"
+              placeholder="Работа"
+              minlength="2"
+              maxlength="200"
+              required
+            />
+            <p class="popup__span-paragraph">
+              <span class="popup__input-error job-input-error"></span>
+            </p>
             <button type="submit" class="popup__button">Сохранить</button>
           </form>
 
@@ -57,20 +80,34 @@
       <div class="popup popup_card">
         <div class="popup__container">
           <h2 class="popup__title">Новое место</h2>
-          <form class="popup__form popup__form_card" name="popupForm">
+          <form class="popup__form popup__form_card" name="popupForm" novalidate>
             <input
               type="text"
+              id="card-name-input"
               class="popup__input popup__input_card_name"
               placeholder="Название"
               name="name"
+              required
+              minlength="2"
+              maxlength="30"
             />
+            <p class="popup__span-paragraph">
+              <span class="popup__input-error card-name-input-error"></span>
+            </p>
             <input
-              type="text"
+              type="url"
+              id="url-input"
               class="popup__input popup__input_card_link"
               placeholder="Ссылка на картинку"
               name="link"
+              required
             />
-            <button type="submit" class="popup__button">Создать</button>
+            <p class="popup__span-paragraph">
+              <span class="popup__input-error url-input-error"></span>
+            </p>
+            <button type="submit" class="popup__button popup__button_disabled" disabled>
+              Создать
+            </button>
           </form>
 
           <button
