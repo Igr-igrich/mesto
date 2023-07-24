@@ -1,5 +1,5 @@
-.popup__input-error {
-  visibility: hidden;
+/* .popup__input-error {
+  visibility: visible;
   display: flex;
   margin: 0;
   font-family: 'Inter', 'Arial', sans-serif;
@@ -8,4 +8,4 @@
   font-size: 12px;
   line-height: 15px;
   color: #ff0000;
-}
+} */

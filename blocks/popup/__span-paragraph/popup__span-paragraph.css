@@ -3,6 +3,7 @@
   padding: 0px;
   max-width: 358px;
   min-height: 2em;
+  color: #f00;
 }
 @media screen and (max-width: 426px) {
   .popup__span-paragraph {

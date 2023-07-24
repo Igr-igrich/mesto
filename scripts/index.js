@@ -1,4 +1,6 @@
-import { Card } from './cards.js';
+import { Card } from './Card.js';
+
+import { FormValidator, config } from './FormValidator.js';
 
 import {
   editPopup,
@@ -15,20 +17,17 @@ import {
   editFormAdd,
   nameInputEditFormAdd,
   linkInputEditFormAdd,
-  buttonSubmitEditFormAdd,
-  template,
-  templateContent,
-  cardElement,
-  cardImageTitle,
-  cardImage,
-  cardDeleteButton,
-  cardLikeIcon,
   popupFullImage,
   popupFullImageItem,
   popupFullImageTitle,
   cardElements,
   popupFullImageCloseButton
 } from './constants.js';
+
+const formProfileValid = new FormValidator(config, editForm);
+formProfileValid.enableValidation();
+const formAddNewCardValid = new FormValidator(config, editFormAdd);
+formAddNewCardValid.enableValidation();
 
 openPopupButton.addEventListener('click', () => {
   openPopup(editPopup);
@@ -42,7 +41,7 @@ closePopupButton.addEventListener('click', () => {
 
 editForm.addEventListener('submit', function (event) {
   event.preventDefault();
-
+  formProfileValid.disableButton();
   profileTitle.textContent = inputTitle.value;
   profileSubtitle.textContent = inputSubtitle.value;
 
@@ -67,6 +66,7 @@ function closedByOverlay(evt) {
 // Функция открытия попапа
 export function openPopup(popup) {
   popup.classList.add('popup_opened');
+  formProfileValid.disableButton();
   document.addEventListener('keydown', closeByEsc);
   document.addEventListener('mousedown', closedByOverlay);
 }
@@ -86,6 +86,7 @@ popupFullImageCloseButton.addEventListener('click', () => {
 // Открытие попапа добавления карточки
 openPopupAddButton.addEventListener('click', () => {
   openPopup(editPopupAdd);
+  formAddNewCardValid.disableButton();
 });
 
 // Закрытие попапа добавления карточки
