@@ -21,7 +21,8 @@ import {
   popupFullImageItem,
   popupFullImageTitle,
   cardElements,
-  popupFullImageCloseButton
+  popupFullImageCloseButton,
+  initialCards
 } from './constants.js';
 
 const formProfileValid = new FormValidator(config, editForm);
@@ -31,6 +32,7 @@ formAddNewCardValid.enableValidation();
 
 openPopupButton.addEventListener('click', () => {
   openPopup(editPopup);
+  formProfileValid.disableButton();
   inputTitle.value = profileTitle.textContent;
   inputSubtitle.value = profileSubtitle.textContent;
 });
@@ -66,7 +68,7 @@ function closedByOverlay(evt) {
 // Функция открытия попапа
 export function openPopup(popup) {
   popup.classList.add('popup_opened');
-  formProfileValid.disableButton();
+  // formProfileValid.disableButton();
   document.addEventListener('keydown', closeByEsc);
   document.addEventListener('mousedown', closedByOverlay);
 }
@@ -101,6 +103,17 @@ export function handleClickCard(name, link) {
   openPopup(popupFullImage);
 }
 
+function createCard(item) {
+  const card = new Card(item, '.elements__item-template', handleClickCard);
+  const cardElement = card.generateCard();
+  return cardElement;
+}
+
+initialCards.forEach(item => {
+  const cardElement = createCard(item);
+  cardElements.prepend(cardElement);
+});
+
 editFormAdd.addEventListener('submit', function (event) {
   event.preventDefault();
   const form = event.target;
@@ -110,18 +123,12 @@ editFormAdd.addEventListener('submit', function (event) {
     link: linkInputEditFormAdd.value
   };
 
-  function createCard(item) {
-    const card = new Card(item, '.elements__item-template', handleClickCard);
-    const cardElement = card.generateCard();
-    return cardElement;
-  }
-
   const cardElement = createCard(item);
   cardElements.prepend(cardElement);
 
   closePopup(editPopupAdd);
 
-  event.target.reset(form);
+  event.target.reset();
 
   return cardElement;
 });

@@ -1,6 +1,3 @@
-import { initialCards, cardElements } from './constants.js';
-import { handleClickCard } from './index.js';
-
 export class Card {
   constructor(data, templateSelector, handleClickCard) {
     this._name = data.name;
@@ -52,14 +49,3 @@ export class Card {
     this._element.remove();
   }
 }
-
-function createCard(item) {
-  const card = new Card(item, '.elements__item-template', handleClickCard);
-  const cardElement = card.generateCard();
-  return cardElement;
-}
-
-initialCards.forEach(item => {
-  const cardElement = createCard(item);
-  cardElements.prepend(cardElement);
-});
