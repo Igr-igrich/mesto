@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="ru">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title lang="en">Mesto</title>
+  </head>
+  <body>
+    <div class="page">
+      <header class="header container">
+        <img src="<%=require('./images/logo.svg')%>" alt="Логотип" class="header__logo" />
+      </header>
+      <main>
+        <section class="profile container">
+          <div class="profile__content-wrapper">
+            <img
+              src="<%=require('./images/profile_image.jpg')%>"
+              alt="фотография профиля"
+              class="profile__image"
+            />
+            <div class="profile__info">
+              <h1 class="profile__title">Жак-Ив Кусто</h1>
+              <button
+                type="button"
+                class="profile__edit-button"
+                aria-label="Кнопка редактирования профиля"
+              ></button>
+              <p class="profile__subtitle">Исследователь океана</p>
+            </div>
+          </div>
+          <button
+            type="button"
+            class="profile__add-button"
+            aria-label="Кнопка добавления карточек"
+          ></button>
+        </section>
+        <section class="elements container">
+          <ul class="elements__items"></ul>
+        </section>
+      </main>
+      <footer class="footer container"><p class="footer__text">&copy; 2023 Mesto Russia</p></footer>
+      <div class="popup popup_profile-edit">
+        <div class="popup__container">
+          <h2 class="popup__title">Редактировать профиль</h2>
+          <form class="popup__form popup__form_profile" name="popupForm" novalidate>
+            <input
+              name="profileName"
+              type="text"
+              id="name-input"
+              class="popup__input popup__input_profile_name"
+              placeholder="Имя"
+              minlength="2"
+              maxlength="40"
+              required
+            />
+            <p class="popup__span-paragraph">
+              <span class="popup__input-error name-input-error"></span>
+            </p>
+            <input
+              name="profileDetails"
+              type="text"
+              id="job-input"
+              class="popup__input popup__input_profile_job"
+              placeholder="Работа"
+              minlength="2"
+              maxlength="200"
+              required
+            />
+            <p class="popup__span-paragraph">
+              <span class="popup__input-error job-input-error"></span>
+            </p>
+            <button type="submit" class="popup__button">Сохранить</button>
+          </form>
+
+          <button
+            type="button"
+            class="popup__close-button popup__close-button_profile"
+            aria-label="Кнопка закрытия редактирования профиля"
+          ></button>
+        </div>
+      </div>
+      <div class="popup popup_card">
+        <div class="popup__container">
+          <h2 class="popup__title">Новое место</h2>
+          <form class="popup__form popup__form_card" name="popupForm" novalidate>
+            <input
+              type="text"
+              id="card-name-input"
+              class="popup__input popup__input_card_name"
+              placeholder="Название"
+              name="name"
+              required
+              minlength="2"
+              maxlength="30"
+            />
+            <p class="popup__span-paragraph">
+              <span class="popup__input-error card-name-input-error"></span>
+            </p>
+            <input
+              type="url"
+              id="url-input"
+              class="popup__input popup__input_card_link"
+              placeholder="Ссылка на картинку"
+              name="link"
+              required
+            />
+            <p class="popup__span-paragraph">
+              <span class="popup__input-error url-input-error"></span>
+            </p>
+            <button type="submit" class="popup__button popup__button_disabled" disabled>
+              Создать
+            </button>
+          </form>
+
+          <button
+            type="button"
+            class="popup__close-button popup__close-button_card"
+            aria-label="Кнопка закрытия добавления карточек"
+          ></button>
+        </div>
+      </div>
+      <div class="popup popup_image">
+        <div class="popup__image-wrapper">
+          <img
+            src="https://pictures.s3.yandex.net/frontend-developer/cards-compressed/arkhyz.jpg"
+            alt="Фото места"
+            class="popup__image-opened"
+          />
+          <p class="popup__image-text">Байкал</p>
+
+          <button
+            type="button"
+            class="popup__close-button popup__close-button_image"
+            aria-label="Кнопка закрытия добавления карточек"
+          ></button>
+        </div>
+      </div>
+    </div>
+    <template class="elements__item-template">
+      <li class="elements__item">
+        <img alt="Фото места" class="elements__img" />
+        <div class="elements__wrapper">
+          <h2 class="elements__title"></h2>
+          <button type="button" class="elements__like-button" aria-label="Кнопка лайка"></button>
+        </div>
+        <button
+          type="button"
+          class="elements__delete-button"
+          aria-label="Удаление карточки"
+        ></button>
+      </li>
+    </template>
+  </body>
+</html>
