@@ -9,8 +9,6 @@ import { UserInfo } from './scripts/UserInfo.js';
 
 import {
   initialCards,
-  inputTitle,
-  inputSubtitle,
   editForm,
   editFormAdd,
   openPopupButton,
@@ -28,8 +26,8 @@ const userInfo = new UserInfo({
 
 const popupProfile = new PopupWithForm('.popup_profile-edit', data => {
   userInfo.setUserInfo({
-    name: data['profileName'],
-    info: data['profileDetails']
+    name: data['name'],
+    info: data['info']
   });
   popupProfile.close();
 });
@@ -39,7 +37,7 @@ const popupCard = new PopupWithForm('.popup_card', data => {
     name: data['name'],
     link: data['link']
   };
-  renderCard(item);
+  sectionInstance.addItem(createCard(item));
   popupCard.close();
 });
 
@@ -48,15 +46,15 @@ const popupImage = new PopupWithImage('.popup_image');
 const sectionInstance = new Section(
   {
     items: initialCards,
-    renderer: items => renderCard(items)
+    renderer: items => sectionInstance.addItem(createCard(items))
   },
   '.elements__items'
 );
 
-function renderCard(item) {
+function createCard(item) {
   const card = new Card(item, '.elements__item-template', handleCardClick);
   const cardElement = card.generateCard();
-  sectionInstance.addItem(cardElement);
+  return cardElement;
 }
 
 // Попап с картинкой
@@ -68,6 +66,7 @@ function handleCardClick(name, link) {
 openPopupAddButton.addEventListener('click', () => {
   popupCard.open();
   formAddNewCardValid.disableButton();
+  formAddNewCardValid.resetValidation();
 });
 
 // Попап редактирования профиля
@@ -75,8 +74,8 @@ openPopupButton.addEventListener('click', () => {
   popupProfile.open();
   const userDetails = userInfo.getUserInfo();
   formProfileValid.disableButton();
-  inputTitle.value = userDetails.name;
-  inputSubtitle.value = userDetails.info;
+  formProfileValid.resetValidation();
+  popupProfile.setInputValues(userDetails);
 });
 
 popupProfile.setEventListener();
