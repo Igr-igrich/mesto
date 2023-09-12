@@ -73,11 +73,10 @@ const popupCard = new PopupWithForm('.popup_card', data => {
 
 const popupEditAvatar = new PopupWithForm('.popup_avatar', data => {
   popupEditAvatar.renderLoading(true);
-  console.log(data.link);
   api
     .setAvatar(data.link)
     .then(result => {
-      console.log(result.avatar);
+
       userInfo.setUserAvatar(result.avatar);
       popupEditAvatar.close();
     })
@@ -130,14 +129,12 @@ function createCard(item) {
       handleCardClick: () => {
         popupImage.open(item.name, item.link);
       },
-      handleClickLike: () => {
-        if (!card._isLiked) {
+      handleClickLike: (likeStatus) => {
+        if (likeStatus) {
           api
             .setLike(card.id)
             .then(res => {
-              console.log('hello');
               card.setLikes(res.likes.length);
-              card.changeStatus();
             })
             .catch(err => {
               console.log(err);
@@ -146,9 +143,7 @@ function createCard(item) {
           api
             .delLike(card.id)
             .then(res => {
-              console.log('hello');
               card.setLikes(res.likes.length);
-              card.changeStatus();
             })
             .catch(err => {
               console.log(err);
@@ -199,24 +194,16 @@ popupAvatarValid.disableButton();
 
 let userId;
 
-api
-  .getUserInfo()
-  .then(resApi => {
+  Promise.all([              
+api.getUserInfo(), 
+api. getAllCards() ]) 
+  .then(([resApi, dataCards]) => {
     userId = resApi._id;
     userInfo.setUserInfo(resApi.name, resApi.about, userId);
     userInfo.setUserAvatar(resApi.avatar);
+    sectionInstance.renderItems(dataCards);
   })
-  .then(() => {
-    api
-      .getAllCards()
-      .then(dataCards => {
-        sectionInstance.renderItems(dataCards);
-      })
-      .catch(err => {
-        console.log(err);
-      });
-  })
-  .catch(err => {
+  .catch((err)=>{             
     console.log(err);
   });
 

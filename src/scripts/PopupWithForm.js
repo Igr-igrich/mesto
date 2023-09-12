@@ -37,10 +37,11 @@ export class PopupWithForm extends Popup {
   }
 
   renderLoading(isLoading) {
+    console.log(this._buttonPopup.innerText);
     if (isLoading) {
       this._buttonPopup.innerText = 'Сохранение...';
     } else {
-      this._buttonPopup.innerText = 'Сохранить';
+      this._buttonPopup.innerText = `${this._buttonPopup.innerText}`;
     }
   }
 }
