@@ -1,13 +1,13 @@
-import './pages/index.css';
+import '../pages/index.css';
 
-import { Card } from './scripts/Card.js';
-import { FormValidator, config } from './scripts/formValidator.js';
-import { Section } from './scripts/Section.js';
-import { PopupWithImage } from './scripts/PopupWithImage.js';
-import { PopupWithForm } from './scripts/PopupWithForm.js';
-import { UserInfo } from './scripts/UserInfo.js';
-import { Api } from './scripts/Api.js';
-import { PopupDeleteCard } from './scripts/PopupDeleteCard.js';
+import { Card } from '../components/Card';
+import { FormValidator, config } from '../components/formValidator.js';
+import { Section } from '../components/Section.js';
+import { PopupWithImage } from '../components/PopupWithImage.js';
+import { PopupWithForm } from '../components/PopupWithForm.js';
+import { UserInfo } from '../components/UserInfo.js';
+import { Api } from '../components/Api.js';
+import { PopupDeleteCard } from '../components/PopupDeleteCard.js';
 
 import {
   token,
@@ -17,7 +17,7 @@ import {
   openPopupButton,
   openPopupAddButton,
   buttonEditAvatar
-} from './scripts/constants.js';
+} from '../components/constants.js';
 
 const api = new Api({
   address: 'https://mesto.nomoreparties.co/v1/',
